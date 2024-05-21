@@ -3,6 +3,7 @@ const launches = require('./launches.mongo');
 const planets = require('./planets.mongo');
 
 const DEFAULT_FLIGHT_NUMBER = 100;
+const SPACEX_API_URL = "https://api.spacexdata.com/v4/launches/query";
 
 const getLatestFlightNumber = async()=> {
   const launch = await launches.findOne().sort({flightNumber:-1});
@@ -10,21 +11,64 @@ const getLatestFlightNumber = async()=> {
   return launch.flightNumber
 }
 
-const loadLaunchesData = async ()=> {
-  const SPACEX_API_URL = "https://api.spacexdata.com/v4/launches/query";
-  await axios.post(SPACEX_API_URL,{
+const populateLaunches = async()=> {
+  console.log('loading space x data......');
+  const response = await axios.post(SPACEX_API_URL,{
     query:{},
     options:{
+      pagination:false,
       populate:[
         {
           path:"rocket",
           select:{
             name:1
           }
+        },
+        {
+          path:"payloads",
+          select:{
+            customers:1
+          }
         }
       ]
     }
-  })
+  });
+
+  if(response.status !== 200){
+    throw new Error('Error while downloading launches from Space X');
+  };
+
+  const launchDocs = response.data.docs;
+  for (const launchDoc of launchDocs){
+    const payloads = launchDoc['payloads'];
+    const customers = payloads.flatMap((customer)=> customer['customers']); 
+    const launch = {
+      flightNumber: launchDoc['flight_number'],
+      mission:launchDoc['name'],
+      rocket: launchDoc['rocket']['name'],
+      launchDate: launchDoc['date_local'],
+      upcoming: launchDoc['upcoming'],
+      success: launchDoc['success'],
+      customers
+    }
+    await saveLaunch(launch);
+  };
+};
+const loadLaunchesData = async ()=> {
+  const launchExist = await findLaunch({
+    flightNumber:1,
+    mission:"FalconSat"
+  });
+
+  if(launchExist) {
+    console.log('Launches already populated');
+  }else {
+    populateLaunches()
+  }
+};
+
+const findLaunch = async (filter)=> {
+  return await launches.findOne(filter);
 };
 
 const saveLaunch = async(launch)=> {
@@ -54,16 +98,18 @@ const scheduleNewLaunch = async (launch)=> {
 };
 
 const launchExistWithId = async (id)=> {
-   return await launches.findOne({flightNumber:id})
+   return await findLaunch({flightNumber:id})
 }
 
-const getAllLaunches = async()=> {
+const getAllLaunches = async(skip,limit)=> {
   return await launches.find({},{
     _id:0,
     __v:0
   })
-}
-
+  .sort({flightNumber:1})
+  .skip(skip)
+  .limit(limit)
+};
 
 const abortLaunch = async(launchId)=> {
   const aborted = await launches.updateOne({
@@ -80,5 +126,6 @@ module.exports = {
   getAllLaunches,
   scheduleNewLaunch,
   launchExistWithId,
-  abortLaunch
+  abortLaunch,
+  loadLaunchesData
 }
