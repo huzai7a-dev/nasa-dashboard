@@ -1,0 +1,67 @@
+planets are loaded
+planets are loaded
+Server is listening on port 4000
+Server is listening on port 4000
+planets are loaded
+planets are loaded
+Server is listening on port 4000
+Server is listening on port 4000
+planets are loaded
+planets are loaded
+Server is listening on port 4000
+Server is listening on port 4000
+planets are loaded
+Server is listening on port 4000
+planets are loaded
+Server is listening on port 4000
+[0mGET / [32m200[0m 3.476 ms - 1002[0m
+[0mGET /static/js/main.9f81f6cf.js [32m200[0m 1.696 ms - 458033[0m
+[0mGET /sound/click.mp3 [32m200[0m 15.269 ms - 2688[0m
+[0mGET /sound/deploy.mp3 [32m200[0m 12.282 ms - 5376[0m
+[0mGET /sound/typing.mp3 [32m200[0m 14.260 ms - 5760[0m
+[0mGET /sound/abort.mp3 [32m200[0m 16.409 ms - 11548[0m
+[0mGET /sound/success.mp3 [32m200[0m 15.754 ms - 98497[0m
+[0mGET /sound/warning.mp3 [32m200[0m 18.819 ms - 28800[0m
+[0mGET /launches [32m200[0m 4.787 ms - 200[0m
+[0mGET /planets [32m200[0m 8.455 ms - 9858[0m
+[0mGET /img/glow.png [32m200[0m 8.104 ms - 455[0m
+[0mGET /favicon.png [32m200[0m 12.308 ms - 4500[0m
+[0mGET /img/background-large.jpg [32m200[0m 8.141 ms - 778461[0m
+[0mGET /manifest.json [32m200[0m 7.964 ms - 306[0m
+[0mPOST /launches [32m201[0m 0.434 ms - 183[0m
+[0mGET /launches [32m200[0m 0.659 ms - 384[0m
+[0mPOST /launches [32m201[0m 0.543 ms - 184[0m
+[0mGET /launches [32m200[0m 0.877 ms - 569[0m
+[0mPOST /launches [32m201[0m 0.802 ms - 184[0m
+[0mGET /launches [32m200[0m 0.782 ms - 754[0m
+planets are loaded
+Server is listening on port 4000
+planets are loaded
+Server is listening on port 4000
+planets are loaded
+Server is listening on port 4000
+planets are loaded
+Server is listening on port 4000
+planets are loaded
+Server is listening on port 4000
+planets are loaded
+Server is listening on port 4000
+planets are loaded
+planets are loaded
+Server is listening on port 4000
+Server is listening on port 4000
+[0mGET /upcoming [32m200[0m 5.040 ms - 1002[0m
+[0mGET /static/js/main.9f81f6cf.js [32m200[0m 1.500 ms - 458033[0m
+[0mGET /sound/click.mp3 [36m304[0m 2.444 ms - -[0m
+[0mGET /sound/typing.mp3 [36m304[0m 2.482 ms - -[0m
+[0mGET /sound/deploy.mp3 [36m304[0m 1.081 ms - -[0m
+[0mGET /favicon.png [36m304[0m 0.620 ms - -[0m
+[0mGET /sound/warning.mp3 [36m304[0m 4.133 ms - -[0m
+[0mGET /sound/success.mp3 [36m304[0m 5.767 ms - -[0m
+[0mGET /sound/abort.mp3 [36m304[0m 1.176 ms - -[0m
+[0mGET /img/background-large.jpg [36m304[0m 2.019 ms - -[0m
+[0mGET /img/glow.png [36m304[0m 1.943 ms - -[0m
+[0mGET /planets [36m304[0m 4.466 ms - -[0m
+[0mGET /launches [32m200[0m 5.618 ms - 200[0m
+[0mGET /favicon.png [36m304[0m 0.972 ms - -[0m
+[0mGET /manifest.json [36m304[0m 0.612 ms - -[0m
