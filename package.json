@@ -16,10 +16,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^8.2.2"
-  },
-  "dependencies": {
-    "morgan": "^1.10.0"
-  }
+  "devDependencies": {},
+  "dependencies": {}
 }
