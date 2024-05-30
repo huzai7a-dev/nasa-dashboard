@@ -36,3 +36,7 @@ jobs:
       - name: Install server dependencies
         run: npm install
         working-directory: ./server
+      
+      -name: Test server
+        run: npm run test
+        working-directory: ./server
