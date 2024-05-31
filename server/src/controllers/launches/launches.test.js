@@ -6,8 +6,8 @@ const { loadPlanets } = require('../../models/planets.model');
 
 describe('Testing Launch API',()=> {
     beforeAll(async()=> {
-        await connectToMongo()
-        await loadPlanets()
+        await connectToMongo();
+        await loadPlanets();
     });
 
     afterAll(async()=> {
